@@ -1,2 +1,3 @@
-# react-calculator
-A demo calculator in React
+# Calculator
+
+A demo calculator app in React. Made in a few days for school.
