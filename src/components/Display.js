@@ -12,7 +12,7 @@ class Display extends Component {
                 <Typography className="display-prev-line">
                     {this.prevLine()}
                 </Typography>
-                <Typography variant="h4" className="display-main-line">
+                <Typography variant="h3" className="display-main-line">
                     {this.mainLine()}
                 </Typography>
             </Paper>

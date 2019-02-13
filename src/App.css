@@ -2,7 +2,7 @@
     display: block;
     box-sizing: border-box;
     min-width: 350px;
-    min-height: 520px;
+    min-height: 680px;
     width: 600px;
     height: 800px;
     max-width: 100%;
@@ -24,7 +24,14 @@
 }
 
 .calc-key-text {
-    font-size: 16pt;
+    font-size: 24pt;
+}
+.calc-key-symbol {
+    font-size: 30pt;
+}
+.calc-key-paren {
+    font-size: 24pt;
+    font-weight: bolder;
 }
 
 .calc-display {
