@@ -10,13 +10,36 @@ class Display extends Component {
         return (
             <Paper className="calc-display">
                 <Typography className="display-prev-line">
-                    {this.props.prev}
+                    {this.prevLine()}
                 </Typography>
                 <Typography variant="h4" className="display-main-line">
-                    {this.props.main}
+                    {this.mainLine()}
                 </Typography>
             </Paper>
         );
+    }
+
+    prevLine = () => {
+        if (this.props.showingResult) {
+            return this.textExpression() + " =";
+        } else {
+            return "Ans = " + this.props.ans;
+        }
+    }
+
+    textExpression = () => {
+        if (this.props.expression.length === 0) {
+            return "0";
+        }
+        return this.props.expression.join("");
+    }
+
+    mainLine = () => {
+        if (this.props.showingResult) {
+            return this.props.ans;
+        } else {
+            return this.textExpression();
+        }
     }
 }
 

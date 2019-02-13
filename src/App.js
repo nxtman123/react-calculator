@@ -12,14 +12,17 @@ class App extends Component {
         return (
             <div className="calc-frame">
                 <Paper className="calc-paper">
-                    <Display
-                        main={"Main Display Line"}
-                        prev={"Over Display Line"}
-                    />
+                    <Display {...this.state} />
                     <Keypad />
                 </Paper>
             </div>
         );
+    }
+
+    state = {
+        showingResult: false,
+        expression: [],
+        ans: 0
     }
 }
 
