@@ -7,11 +7,11 @@ import BackspaceIcon from '@material-ui/icons/Backspace';
 
 const Keypad = (props) => (
     <Fragment>
-        <Button variant="contained" className="calc-back-key" onClick={props.backKey}>
-            <BackspaceIcon />
-        </Button>
         <Button variant="contained" className="calc-ans-key" onClick={props.typeKey("Ans")}>
             <span className="calc-key-text">ans</span>
+        </Button>
+        <Button variant="contained" className="calc-back-key" onClick={props.backKey}>
+            <BackspaceIcon />
         </Button>
         <Button variant="contained" color="primary" className="calc-clear-key" onClick={props.clearKey}>
             <span className="calc-key-text">C</span>

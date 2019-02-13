@@ -43,11 +43,11 @@
     opacity: 0.6;
 }
 
-.calc-back-key {
+.calc-ans-key {
     grid-column: 1;
     grid-row: 2;
 }
-.calc-ans-key {
+.calc-back-key {
     grid-column: 2;
     grid-row: 2;
 }
