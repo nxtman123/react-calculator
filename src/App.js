@@ -76,6 +76,18 @@ class App extends Component {
             openParens -= 1;
         } else if (value === "(") {
             openParens += 1;
+        } else if (value === ".") {
+            if (lastToken === ".") {
+                return;
+            } else if (Number.isInteger(lastToken)) {
+                let i = 2;
+                while (Number.isInteger(expression[expression.length - i])) {
+                    i += 1;
+                }
+                if (expression[expression.length - i] === ".") {
+                    return;
+                }
+            }
         }
         expression.push(value);
         this.setState({
