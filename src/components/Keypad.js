@@ -67,7 +67,7 @@ const Keypad = (props) => (
         <Button variant="contained" classes={{ label: "calc-key-text" }} className="calc-period-key" onClick={props.typeKey(".")}>
             .
         </Button>
-        <Button variant="contained" classes={{ label: "calc-key-symbol" }} color="primary" className="calc-equal-key">
+        <Button variant="contained" classes={{ label: "calc-key-symbol" }} color="primary" className="calc-equal-key" onClick={props.equalKey}>
             =
         </Button>
     </Fragment>

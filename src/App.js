@@ -7,6 +7,8 @@ import Paper from "@material-ui/core/Paper";
 import Display from "./components/Display.js";
 import Keypad from "./components/Keypad.js";
 
+import {resolveExpression} from "./utils/expressions.js";
+
 class App extends Component {
     render() {
         return (
@@ -17,6 +19,7 @@ class App extends Component {
                         clearKey={this.clearKey}
                         backKey={this.backKey}
                         typeKey={this.typeKey}
+                        equalKey={this.equalKey}
                     />
                 </Paper>
             </div>
@@ -32,7 +35,8 @@ class App extends Component {
 
     clearKey = () => {
         this.setState({
-            expression: []
+            expression: [],
+            showingResult: false
         });
     }
 
@@ -55,8 +59,8 @@ class App extends Component {
         let expression = [...this.state.expression];
         let openParens = this.state.openParens;
         if (value === ")") {
-            console.log(expression[expression.length - 1])
-            if (openParens <= 0 || expression[expression.length - 1] === "(") {
+            let lastToken = expression[expression.length - 1];
+            if (openParens <= 0 || ["(", " + ", " − ", " × ", " ÷ "].indexOf(lastToken) !== -1) {
                 return
             };
             openParens -= 1;
@@ -68,6 +72,21 @@ class App extends Component {
             expression,
             openParens
         });
+    }
+
+    equalKey = () => {
+        let expression = [...this.state.expression];
+        let openParens = this.state.openParens;
+        while (openParens > 0) {
+            expression.push(")");
+            openParens -= 1;
+        }
+        this.setState({
+            showingResult: true,
+            expression,
+            openParens,
+            ans: resolveExpression(expression, this.state.ans)
+        })
     }
 }
 
