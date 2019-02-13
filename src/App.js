@@ -14,6 +14,7 @@ class App extends Component {
         return (
             <div className="calc-frame">
                 <Paper className="calc-paper">
+                    <h4 className="calc-label">Calculator <span>by Kurtis Jantzen</span></h4>
                     <Display {...this.state} />
                     <Keypad
                         clearKey={this.clearKey}

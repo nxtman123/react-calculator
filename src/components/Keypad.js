@@ -14,7 +14,7 @@ const Keypad = (props) => (
             <Icon fontSize="inherit">backspace</Icon>
         </Button>
         <Button variant="contained" classes={{ label: "calc-key-text" }} color="primary" className="calc-clear-key" onClick={props.clearKey}>
-            C
+            Clear
         </Button>
         <Button variant="contained" classes={{ label: "calc-key-paren" }} className="calc-left-paren-key" onClick={props.typeKey("(")}>
             (
