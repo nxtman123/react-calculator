@@ -1,172 +1,291 @@
 .calc-frame {
-    display: block;
-    box-sizing: border-box;
-    min-width: 360px;
-    min-height: 680px;
-    width: 600px;
-    height: 800px;
-    max-width: 100%;
-    max-height: 100vh;
-    margin: 0 auto;
-    padding: 0.75rem;
+  display: block;
+  box-sizing: border-box;
+  min-width: 340px;
+  min-height: 520px;
+  width: 600px;
+  height: 800px;
+  max-width: 100%;
+  max-height: 100vh;
+  margin: 0 auto;
+  padding: 0.75em;
 }
-
-.calc-paper {
-    background-color: #e0e0e0 !important;
-    box-sizing: border-box;
+@media (any-hover: none) {
+  .calc-frame {
     width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 0.5fr 1.5fr repeat(6, 1fr);
-    padding: 0.75rem;
-    grid-gap: 0.75rem;
+    height: 100vh;
+  }
 }
-
+@media (any-hover: none) and (orientation: landscape) {
+  .calc-frame {
+    min-height: 440px;
+    min-width: 490px;
+  }
+}
+.calc-paper {
+  background-color: #e0e0e0 !important;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  padding: 0.75em;
+  grid-gap: 0.75em;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 0.5fr 1.5fr repeat(6, 1fr);
+  grid-template-areas: "e e e e" "d d d d" ". . a a" ". . . ." "b b b ." "b b b ." "b b b c" "b b b c";
+}
+@media (any-hover: none) and (orientation: landscape) {
+  .calc-paper {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 0.5fr 1.5fr repeat(4, 1fr);
+    grid-template-areas: "e e e e e e" "d d d d d d" "b b b . a a" "b b b . . ." "b b b . . c" "b b b . . c";
+  }
+}
 .calc-label {
-    grid-column: 1/5;
-    grid-row: 1;
-    font-family: "Noto Serif", serif;
-    font-size: 20pt;
-    opacity: 0.7;
+  grid-area: e;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 .calc-label > span {
+  font-family: "Noto Serif", serif;
+  font-weight: bold;
+  font-size: 16pt;
+  opacity: 0.6;
+}
+@media (min-width: 540px) and (min-height: 580px) {
+  .calc-label > span {
+    font-size: 20pt;
+  }
+}
+@media (any-hover: none) and (min-width: 1000px) and (min-height: 840px) {
+  .calc-label > span {
+    font-size: 28pt;
+  }
+}
+.calc-label > span > span {
+  font-size: 10pt;
+}
+@media (min-width: 540px) and (min-height: 580px) {
+  .calc-label > span > span {
     font-size: 13pt;
+  }
 }
-
-.calc-key-text {
-    font-size: 24pt;
-    text-transform: capitalize;
+@media (any-hover: none) and (min-width: 1000px) and (min-height: 840px) {
+  .calc-label > span > span {
+    font-size: 20pt;
+  }
 }
-.calc-key-symbol {
-    font-size: 30pt;
-}
-.calc-key-paren {
-    font-size: 24pt;
-    font-weight: bolder;
-}
-
 .calc-display {
-    grid-column: 1/5;
-    grid-row: 2;
-    padding: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow-y: scroll;
+  grid-area: d;
+  padding: 1.25em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+  min-height: 4rem;
 }
 .display-main-line {
-    text-align: right;
+  text-align: right;
+  font-size: 2rem !important;
+}
+@media (min-width: 540px) and (min-height: 580px) {
+  .display-main-line {
+    font-size: 3rem !important;
+  }
+}
+@media (any-hover: none) and (min-width: 1000px) and (min-height: 840px) {
+  .display-main-line {
+    font-size: 4.5rem !important;
+  }
 }
 .implied-parens {
-    opacity: 0.6;
+  opacity: 0.6;
 }
 .display-prev-line {
-    text-align: right;
-    opacity: 0.6;
+  text-align: right;
+  opacity: 0.6;
 }
-
+.calc-key-text {
+  font-size: 12pt;
+  text-transform: capitalize;
+}
+@media (min-width: 540px) and (min-height: 580px) {
+  .calc-key-text {
+    font-size: 24pt;
+  }
+}
+@media (any-hover: none) and (min-width: 1000px) and (min-height: 840px) {
+  .calc-key-text {
+    font-size: 36pt;
+  }
+}
+.calc-key-symbol {
+  font-size: 15pt;
+}
+@media (min-width: 540px) and (min-height: 580px) {
+  .calc-key-symbol {
+    font-size: 30pt;
+  }
+}
+@media (any-hover: none) and (min-width: 1000px) and (min-height: 840px) {
+  .calc-key-symbol {
+    font-size: 40pt;
+  }
+}
+.calc-key-paren {
+  font-size: 12pt;
+  font-weight: bolder;
+}
+@media (min-width: 540px) and (min-height: 580px) {
+  .calc-key-paren {
+    font-size: 24pt;
+  }
+}
+@media (any-hover: none) and (min-width: 1000px) and (min-height: 840px) {
+  .calc-key-paren {
+    font-size: 36pt;
+  }
+}
+.calc-key-light {
+  background-color: #f0f0f0 !important;
+}
+.calc-key-light:hover {
+  background-color: #d5d5d5 !important;
+}
+.calc-key-medium {
+  background-color: #d5d5d5 !important;
+}
+.calc-key-medium:hover {
+  background-color: #c0c0c0 !important;
+}
+.calc-key-dark {
+  background-color: #606060 !important;
+  color: white !important;
+}
+.calc-key-dark:hover {
+  background-color: #505050 !important;
+}
 .calc-ans-key {
-    grid-column: 1;
-    grid-row: 3;
-    background-color: #d0d0d0 !important;
+  grid-column: 1;
+  grid-row: 3;
 }
 .calc-back-key {
-    grid-column: 2;
-    grid-row: 3;
-    background-color: #606060 !important;
-    color: white !important;
-}
-.calc-clear-key {
-    grid-column: 3/5;
-    grid-row: 3;
+  grid-column: 2;
+  grid-row: 3;
 }
 .calc-left-paren-key {
-    grid-column: 1;
-    grid-row: 4;
-    background-color: #d0d0d0 !important;
+  grid-column: 1;
+  grid-row: 4;
 }
 .calc-right-paren-key {
-    grid-column: 2;
-    grid-row: 4;
-    background-color: #d0d0d0 !important;
+  grid-column: 2;
+  grid-row: 4;
 }
 .calc-div-key {
-    grid-column: 3;
-    grid-row: 4;
-    background-color: #d0d0d0 !important;
+  grid-column: 3;
+  grid-row: 4;
 }
 .calc-mult-key {
-    grid-column: 4;
-    grid-row: 4;
-    background-color: #d0d0d0 !important;
-}
-.calc-7-key {
-    grid-column: 1;
-    grid-row: 5;
-    background-color: #f0f0f0 !important;
-}
-.calc-8-key {
-    grid-column: 2;
-    grid-row: 5;
-    background-color: #f0f0f0 !important;
-}
-.calc-9-key {
-    grid-column: 3;
-    grid-row: 5;
-    background-color: #f0f0f0 !important;
+  grid-column: 4;
+  grid-row: 4;
 }
 .calc-sub-key {
-    grid-column: 4;
-    grid-row: 5;
-    background-color: #d0d0d0 !important;
-}
-.calc-4-key {
-    grid-column: 1;
-    grid-row: 6;
-    background-color: #f0f0f0 !important;
-}
-.calc-5-key {
-    grid-column: 2;
-    grid-row: 6;
-    background-color: #f0f0f0 !important;
-}
-.calc-6-key {
-    grid-column: 3;
-    grid-row: 6;
-    background-color: #f0f0f0 !important;
+  grid-column: 4;
+  grid-row: 5;
 }
 .calc-add-key {
+  grid-column: 4;
+  grid-row: 6;
+}
+@media (any-hover: none) and (orientation: landscape) {
+  .calc-ans-key {
+    grid-column: 5;
+    grid-row: 4;
+  }
+  .calc-back-key {
+    grid-column: 6;
+    grid-row: 4;
+  }
+  .calc-left-paren-key {
+    grid-column: 5;
+    grid-row: 5;
+  }
+  .calc-right-paren-key {
+    grid-column: 5;
+    grid-row: 6;
+  }
+  .calc-div-key {
+    grid-column: 4;
+    grid-row: 3;
+  }
+  .calc-mult-key {
+    grid-column: 4;
+    grid-row: 4;
+  }
+  .calc-sub-key {
+    grid-column: 4;
+    grid-row: 5;
+  }
+  .calc-add-key {
     grid-column: 4;
     grid-row: 6;
-    background-color: #d0d0d0 !important;
+  }
 }
-.calc-1-key {
-    grid-column: 1;
-    grid-row: 7;
-    background-color: #f0f0f0 !important;
-}
-.calc-2-key {
-    grid-column: 2;
-    grid-row: 7;
-    background-color: #f0f0f0 !important;
-}
-.calc-3-key {
-    grid-column: 3;
-    grid-row: 7;
-    background-color: #f0f0f0 !important;
-}
-.calc-0-key {
-    grid-column: 1/3;
-    grid-row: 8;
-    background-color: #f0f0f0 !important;
-}
-.calc-period-key {
-    grid-column: 3;
-    grid-row: 8;
-    background-color: #f0f0f0 !important;
+.calc-clear-key {
+  grid-area: a;
 }
 .calc-equal-key {
-    grid-column: 4;
-    grid-row: 7/9;
+  grid-area: c;
+}
+.calc-numpad {
+  grid-area: b;
+  display: grid;
+  grid-gap: 0.75em;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}
+.calc-1-key {
+  grid-column: 1;
+  grid-row: 3;
+}
+.calc-2-key {
+  grid-column: 2;
+  grid-row: 3;
+}
+.calc-3-key {
+  grid-column: 3;
+  grid-row: 3;
+}
+.calc-4-key {
+  grid-column: 1;
+  grid-row: 2;
+}
+.calc-5-key {
+  grid-column: 2;
+  grid-row: 2;
+}
+.calc-6-key {
+  grid-column: 3;
+  grid-row: 2;
+}
+.calc-7-key {
+  grid-column: 1;
+  grid-row: 1;
+}
+.calc-8-key {
+  grid-column: 2;
+  grid-row: 1;
+}
+.calc-9-key {
+  grid-column: 3;
+  grid-row: 1;
+}
+.calc-0-key {
+  grid-column: 1/3;
+  grid-row: 4;
+}
+.calc-period-key {
+  grid-column: 3;
+  grid-row: 4;
 }

@@ -4,6 +4,7 @@ const resolveExpression = (expression, ans) => {
     console.log(expression.join());
     expression = condenseFloats(expression);
     console.log(expression.join());
+    return 0;
 }
 
 const condenseFloats = (expression) => {
