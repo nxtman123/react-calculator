@@ -58,11 +58,21 @@ class App extends Component {
     typeKey = (value) => () => {
         let expression = [...this.state.expression];
         let openParens = this.state.openParens;
-        if (value === ")") {
-            let lastToken = expression[expression.length - 1];
+        let lastToken = expression[expression.length - 1];
+        if ([" + ", " × ", " ÷ "].indexOf(value) !== -1) {
+            if (expression.length === 0) {
+                expression = [0];
+            } else if(["(", " + ", " − ", " × ", " ÷ "].indexOf(lastToken) !== -1) {
+                return;
+            }
+        } else if (value === " − ") {
+            if ([" + ", " − ", " × ", " ÷ "].indexOf(lastToken) !== -1) {
+                return;
+            }
+        } else if (value === ")") {
             if (openParens <= 0 || ["(", " + ", " − ", " × ", " ÷ "].indexOf(lastToken) !== -1) {
-                return
-            };
+                return;
+            }
             openParens -= 1;
         } else if (value === "(") {
             openParens += 1;
