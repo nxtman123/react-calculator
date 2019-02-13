@@ -13,7 +13,11 @@ class App extends Component {
             <div className="calc-frame">
                 <Paper className="calc-paper">
                     <Display {...this.state} />
-                    <Keypad />
+                    <Keypad
+                        clearKey={this.clearKey}
+                        backKey={this.backKey}
+                        typeKey={this.typeKey}
+                    />
                 </Paper>
             </div>
         );
@@ -23,6 +27,28 @@ class App extends Component {
         showingResult: false,
         expression: [],
         ans: 0
+    }
+
+    clearKey = () => {
+        this.setState({
+            expression: []
+        });
+    }
+
+    backKey = () => {
+        let expression = [...this.state.expression];
+        expression.pop();
+        this.setState({
+            expression
+        });
+    }
+
+    typeKey = (value) => () => {
+        let expression = [...this.state.expression];
+        expression.push(value);
+        this.setState({
+            expression
+        });
     }
 }
 
