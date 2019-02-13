@@ -1,19 +1,26 @@
-.calc-base {
+.calc-frame {
     display: block;
+    box-sizing: border-box;
     width: 600px;
     height: 800px;
     max-width: 100%;
     max-height: 100vh;
     margin: 0 auto;
-    padding: 0.5rem;
-    box-sizing: border-box;
+    padding: 0.75rem;
 }
-.calc-background {
+
+.calc-paper {
+    background-color: lightgrey !important;
     display: block;
-    padding: 0.5rem;
-    background-color: grey;
-    border-radius: 0.2rem;
+    box-sizing: border-box;
     width: 100%;
     height: 100%;
+}
+
+.padbox {
+    display: block;
     box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 0.75rem;
 }
