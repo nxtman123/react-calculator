@@ -45,6 +45,9 @@
 .display-main-line {
     text-align: right;
 }
+.implied-parens {
+    opacity: 0.6;
+}
 .display-prev-line {
     text-align: right;
     opacity: 0.6;

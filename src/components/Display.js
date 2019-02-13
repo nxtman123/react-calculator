@@ -14,6 +14,7 @@ class Display extends Component {
                 </Typography>
                 <Typography variant="h3" className="display-main-line">
                     {this.mainLine()}
+                    <span className="implied-parens">{this.implParens()}</span>
                 </Typography>
             </Paper>
         );
@@ -39,6 +40,12 @@ class Display extends Component {
             return this.props.ans;
         } else {
             return this.textExpression();
+        }
+    }
+
+    implParens = () => {
+        if (this.props.openParens) {
+            return " " + ")".repeat(this.props.openParens);
         }
     }
 }

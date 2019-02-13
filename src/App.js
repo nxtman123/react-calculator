@@ -26,6 +26,7 @@ class App extends Component {
     state = {
         showingResult: false,
         expression: [],
+        openParens: 0,
         ans: 0
     }
 
@@ -37,17 +38,35 @@ class App extends Component {
 
     backKey = () => {
         let expression = [...this.state.expression];
-        expression.pop();
+        let openParens = this.state.openParens;
+        let value = expression.pop();
+        if (value === ")") {
+            openParens += 1;
+        } else if (value === "(") {
+            openParens -= 1;
+        }
         this.setState({
-            expression
+            expression,
+            openParens
         });
     }
 
     typeKey = (value) => () => {
         let expression = [...this.state.expression];
+        let openParens = this.state.openParens;
+        if (value === ")") {
+            console.log(expression[expression.length - 1])
+            if (openParens <= 0 || expression[expression.length - 1] === "(") {
+                return
+            };
+            openParens -= 1;
+        } else if (value === "(") {
+            openParens += 1;
+        }
         expression.push(value);
         this.setState({
-            expression
+            expression,
+            openParens
         });
     }
 }
