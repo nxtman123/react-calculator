@@ -4,8 +4,8 @@
 @color-very-light-grey: #f0f0f0;
 @color-light-grey: #d5d5d5;
 @color-medium-grey: #c0c0c0;
-@color-dark-grey: #606060;
-@color-very-dark-grey: #505050;
+@color-dark-grey: #606470;
+@color-very-dark-grey: #505460;
 
 @text-opacity: 0.6;
 
@@ -150,11 +150,17 @@
     &:hover {
         background-color: @color-light-grey !important;
     }
+    &:focus{
+        background-color: @color-very-light-grey !important;
+    }
 }
 .calc-key-medium {
     background-color: @color-light-grey !important;
     &:hover {
         background-color: @color-medium-grey !important;
+    }
+    &:focus{
+        background-color: @color-light-grey !important;
     }
 }
 .calc-key-dark {
@@ -162,6 +168,9 @@
     color: white !important;
     &:hover {
         background-color: @color-very-dark-grey !important;
+    }
+    &:focus{
+        background-color: @color-dark-grey !important;
     }
 }
 

@@ -153,18 +153,27 @@
 .calc-key-light:hover {
   background-color: #d5d5d5 !important;
 }
+.calc-key-light:focus {
+  background-color: #f0f0f0 !important;
+}
 .calc-key-medium {
   background-color: #d5d5d5 !important;
 }
 .calc-key-medium:hover {
   background-color: #c0c0c0 !important;
 }
+.calc-key-medium:focus {
+  background-color: #d5d5d5 !important;
+}
 .calc-key-dark {
-  background-color: #606060 !important;
+  background-color: #606470 !important;
   color: white !important;
 }
 .calc-key-dark:hover {
-  background-color: #505050 !important;
+  background-color: #505460 !important;
+}
+.calc-key-dark:focus {
+  background-color: #606470 !important;
 }
 .calc-ans-key {
   grid-column: 1;
