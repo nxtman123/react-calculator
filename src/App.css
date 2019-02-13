@@ -2,7 +2,7 @@
     display: block;
     box-sizing: border-box;
     min-width: 350px;
-    min-height: 500px;
+    min-height: 520px;
     width: 600px;
     height: 800px;
     max-width: 100%;
@@ -18,7 +18,7 @@
     height: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(8, 1fr);
+    grid-template-rows: 1.5fr repeat(6, 1fr);
     padding: 0.75rem;
     grid-gap: 0.75rem;
 }
@@ -29,90 +29,101 @@
 
 .calc-display {
     grid-column: 1/5;
-    grid-row: 1/3;
+    grid-row: 1;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.display-main-line {
+    text-align: right;
+}
+.display-prev-line {
+    text-align: right;
+    opacity: 0.6;
 }
 
 .calc-back-key {
     grid-column: 1;
-    grid-row: 3;
+    grid-row: 2;
 }
 .calc-ans-key {
     grid-column: 2;
-    grid-row: 3;
+    grid-row: 2;
 }
 .calc-clear-key {
     grid-column: 3/5;
-    grid-row: 3;
+    grid-row: 2;
 }
 .calc-left-paren-key {
     grid-column: 1;
-    grid-row: 4;
+    grid-row: 3;
 }
 .calc-right-paren-key {
     grid-column: 2;
-    grid-row: 4;
+    grid-row: 3;
 }
 .calc-div-key {
     grid-column: 3;
-    grid-row: 4;
+    grid-row: 3;
 }
 .calc-mult-key {
     grid-column: 4;
-    grid-row: 4;
+    grid-row: 3;
 }
 .calc-7-key {
     grid-column: 1;
-    grid-row: 5;
+    grid-row: 4;
 }
 .calc-8-key {
     grid-column: 2;
-    grid-row: 5;
+    grid-row: 4;
 }
 .calc-9-key {
     grid-column: 3;
-    grid-row: 5;
+    grid-row: 4;
 }
 .calc-sub-key {
     grid-column: 4;
-    grid-row: 5;
+    grid-row: 4;
 }
 .calc-4-key {
     grid-column: 1;
-    grid-row: 6;
+    grid-row: 5;
 }
 .calc-5-key {
     grid-column: 2;
-    grid-row: 6;
+    grid-row: 5;
 }
 .calc-6-key {
     grid-column: 3;
-    grid-row: 6;
+    grid-row: 5;
 }
 .calc-add-key {
     grid-column: 4;
-    grid-row: 6;
+    grid-row: 5;
 }
 .calc-1-key {
     grid-column: 1;
-    grid-row: 7;
+    grid-row: 6;
 }
 .calc-2-key {
     grid-column: 2;
-    grid-row: 7;
+    grid-row: 6;
 }
 .calc-3-key {
     grid-column: 3;
-    grid-row: 7;
+    grid-row: 6;
 }
 .calc-0-key {
     grid-column: 1/3;
-    grid-row: 8;
+    grid-row: 7;
 }
 .calc-period-key {
     grid-column: 3;
-    grid-row: 8;
+    grid-row: 7;
 }
 .calc-equal-key {
     grid-column: 4;
-    grid-row: 7/9;
+    grid-row: 6/8;
 }

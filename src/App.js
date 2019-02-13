@@ -7,13 +7,14 @@ import Paper from "@material-ui/core/Paper";
 
 import BackspaceIcon from '@material-ui/icons/Backspace';
 
+import Display from "./components/Display.js";
+
 class App extends Component {
     render() {
         return (
             <div className="calc-frame">
                 <Paper className="calc-paper">
-                    <Paper className="calc-display">
-                    </Paper>
+                    <Display main={"Main Display Line"} prev={"Over Display Line"}/>
                     <Button variant="contained" className="calc-back-key">
                         <BackspaceIcon />
                     </Button>
