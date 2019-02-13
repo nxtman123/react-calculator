@@ -12,7 +12,7 @@
 }
 
 .calc-paper {
-    background-color: lightgrey !important;
+    background-color: #e0e0e0 !important;
     box-sizing: border-box;
     width: 100%;
     height: 100%;
@@ -25,6 +25,7 @@
 
 .calc-key-text {
     font-size: 24pt;
+    text-transform: capitalize;
 }
 .calc-key-symbol {
     font-size: 30pt;
@@ -56,10 +57,13 @@
 .calc-ans-key {
     grid-column: 1;
     grid-row: 2;
+    background-color: #d0d0d0 !important;
 }
 .calc-back-key {
     grid-column: 2;
     grid-row: 2;
+    background-color: #606060 !important;
+    color: white !important;
 }
 .calc-clear-key {
     grid-column: 3/5;
@@ -68,70 +72,87 @@
 .calc-left-paren-key {
     grid-column: 1;
     grid-row: 3;
+    background-color: #d0d0d0 !important;
 }
 .calc-right-paren-key {
     grid-column: 2;
     grid-row: 3;
+    background-color: #d0d0d0 !important;
 }
 .calc-div-key {
     grid-column: 3;
     grid-row: 3;
+    background-color: #d0d0d0 !important;
 }
 .calc-mult-key {
     grid-column: 4;
     grid-row: 3;
+    background-color: #d0d0d0 !important;
 }
 .calc-7-key {
     grid-column: 1;
     grid-row: 4;
+    background-color: #f0f0f0 !important;
 }
 .calc-8-key {
     grid-column: 2;
     grid-row: 4;
+    background-color: #f0f0f0 !important;
 }
 .calc-9-key {
     grid-column: 3;
     grid-row: 4;
+    background-color: #f0f0f0 !important;
 }
 .calc-sub-key {
     grid-column: 4;
     grid-row: 4;
+    background-color: #d0d0d0 !important;
 }
 .calc-4-key {
     grid-column: 1;
     grid-row: 5;
+    background-color: #f0f0f0 !important;
 }
 .calc-5-key {
     grid-column: 2;
     grid-row: 5;
+    background-color: #f0f0f0 !important;
 }
 .calc-6-key {
     grid-column: 3;
     grid-row: 5;
+    background-color: #f0f0f0 !important;
 }
 .calc-add-key {
     grid-column: 4;
     grid-row: 5;
+    background-color: #d0d0d0 !important;
 }
 .calc-1-key {
     grid-column: 1;
     grid-row: 6;
+    background-color: #f0f0f0 !important;
 }
 .calc-2-key {
     grid-column: 2;
     grid-row: 6;
+    background-color: #f0f0f0 !important;
 }
 .calc-3-key {
     grid-column: 3;
     grid-row: 6;
+    background-color: #f0f0f0 !important;
 }
 .calc-0-key {
     grid-column: 1/3;
     grid-row: 7;
+    background-color: #f0f0f0 !important;
 }
 .calc-period-key {
     grid-column: 3;
     grid-row: 7;
+    background-color: #f0f0f0 !important;
 }
 .calc-equal-key {
     grid-column: 4;
