@@ -1,6 +1,8 @@
 .calc-frame {
     display: block;
     box-sizing: border-box;
+    min-width: 350px;
+    min-height: 500px;
     width: 600px;
     height: 800px;
     max-width: 100%;
@@ -11,16 +13,106 @@
 
 .calc-paper {
     background-color: lightgrey !important;
-    display: block;
     box-sizing: border-box;
     width: 100%;
     height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    padding: 0.75rem;
+    grid-gap: 0.75rem;
 }
 
-.padbox {
-    display: block;
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    padding: 0.75rem;
+.calc-key-text {
+    font-size: 16pt;
+}
+
+.calc-display {
+    grid-column: 1/5;
+    grid-row: 1/3;
+}
+
+.calc-back-key {
+    grid-column: 1;
+    grid-row: 3;
+}
+.calc-ans-key {
+    grid-column: 2;
+    grid-row: 3;
+}
+.calc-clear-key {
+    grid-column: 3/5;
+    grid-row: 3;
+}
+.calc-left-paren-key {
+    grid-column: 1;
+    grid-row: 4;
+}
+.calc-right-paren-key {
+    grid-column: 2;
+    grid-row: 4;
+}
+.calc-div-key {
+    grid-column: 3;
+    grid-row: 4;
+}
+.calc-mult-key {
+    grid-column: 4;
+    grid-row: 4;
+}
+.calc-7-key {
+    grid-column: 1;
+    grid-row: 5;
+}
+.calc-8-key {
+    grid-column: 2;
+    grid-row: 5;
+}
+.calc-9-key {
+    grid-column: 3;
+    grid-row: 5;
+}
+.calc-sub-key {
+    grid-column: 4;
+    grid-row: 5;
+}
+.calc-4-key {
+    grid-column: 1;
+    grid-row: 6;
+}
+.calc-5-key {
+    grid-column: 2;
+    grid-row: 6;
+}
+.calc-6-key {
+    grid-column: 3;
+    grid-row: 6;
+}
+.calc-add-key {
+    grid-column: 4;
+    grid-row: 6;
+}
+.calc-1-key {
+    grid-column: 1;
+    grid-row: 7;
+}
+.calc-2-key {
+    grid-column: 2;
+    grid-row: 7;
+}
+.calc-3-key {
+    grid-column: 3;
+    grid-row: 7;
+}
+.calc-0-key {
+    grid-column: 1/3;
+    grid-row: 8;
+}
+.calc-period-key {
+    grid-column: 3;
+    grid-row: 8;
+}
+.calc-equal-key {
+    grid-column: 4;
+    grid-row: 7/9;
 }
