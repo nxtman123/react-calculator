@@ -62,6 +62,13 @@ class App extends Component {
         let expression = [...this.state.expression];
         let openParens = this.state.openParens;
         let lastToken = expression[expression.length - 1];
+        if (this.state.result !== undefined) {
+            if ([" + ", " − ", " × ", " ÷ "].indexOf(value) !== -1) {
+                expression = ["Ans"];
+            } else {
+                expression = [];
+            }
+        }
         if ([" + ", " × ", " ÷ "].indexOf(value) !== -1) {
             if (expression.length === 0) {
                 expression = [0];
@@ -94,6 +101,7 @@ class App extends Component {
         }
         expression.push(value);
         this.setState({
+            result: undefined,
             expression,
             openParens
         });
