@@ -1,0 +1,53 @@
+      ____      _            _       _
+     / ___|__ _| | ___ _   _| | __ _| |_ ___  _ __
+    | |   / _` | |/ __| | | | |/ _` | __/ _ \| '__|
+    | |__| (_| | | (__| |_| | | (_| | || (_) | |
+     \____\__,_|_|\___|\__,_|_|\__,_|\__\___/|_|
+
+by Kurtis Jantzen
+
+
+> This app is deployed at: http://nxtman123.github.io/react-calculator
+
+Testing
+=======
+
+This app was tested in:
+- Firefox (Linux) (normal and with device simulation)
+- Google Chrome (Linux) (normal and with device simulation)
+- Google Chrome (Android)
+- DuckDuckGo Browser (Android)
+- Brave Browser (Android)
+
+Deployment Instructions
+=======================
+
+Development Environment
+-----------------------
+To deploy a local development server environment:
+
+1. Ensure you have `node.js`, `nmp` and `yarn` installed.
+
+2. From the project root (directory containing this file, `instructions.txt`):
+
+
+    $ yarn start
+
+
+Your default browser should open a new tab with the app.
+
+To Github pages
+---------------
+
+To deploy to your own github pages site:
+
+1. Fork the [repo](https://github.com/nxtman123/react-calculator) on Github.
+
+2. In `package.json` change the line
+
+
+    "homepage": "http://nxtman123.github.io/react-calculator",
+
+to
+
+    "homepage": "http://YOUR_GITHUB_HANDLE.github.io/react-calculator",
