@@ -45,6 +45,10 @@ class App extends Component {
     }
 
     backKey = () => {
+        if (this.state.result !== undefined) {
+            this.clearKey();
+            return;
+        }
         let userExpression = [...this.state.userExpression];
         let openParens = this.state.openParens;
         let value = userExpression.pop();
