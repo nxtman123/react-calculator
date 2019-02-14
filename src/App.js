@@ -38,8 +38,9 @@ class App extends Component {
 
     clearKey = () => {
         this.setState({
-            userExpression: [],
             result: undefined,
+            userExpression: [],
+            openParens: 0
         });
     }
 
