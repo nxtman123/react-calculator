@@ -21,7 +21,7 @@ class Display extends Component {
     }
 
     prevLine = () => {
-        if (this.props.showingResult) {
+        if (this.props.result !== undefined) {
             return this.textExpression() + " =";
         } else {
             return "Ans = " + this.props.ans;
@@ -36,15 +36,18 @@ class Display extends Component {
     }
 
     mainLine = () => {
-        if (this.props.showingResult) {
-            return this.props.ans;
+        if (this.props.result !== undefined) {
+            if (isNaN(this.props.result)) {
+                return "Error";
+            }
+            return this.props.result;
         } else {
             return this.textExpression();
         }
     }
 
     implParens = () => {
-        if (this.props.openParens) {
+        if (this.props.result === undefined && this.props.openParens) {
             return " " + ")".repeat(this.props.openParens);
         }
     }

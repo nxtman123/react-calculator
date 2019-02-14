@@ -30,7 +30,7 @@ class App extends Component {
     }
 
     state = {
-        showingResult: false,
+        result: undefined,
         expression: [],
         openParens: 0,
         ans: 0
@@ -39,7 +39,7 @@ class App extends Component {
     clearKey = () => {
         this.setState({
             expression: [],
-            showingResult: false
+            result: undefined,
         });
     }
 
@@ -102,15 +102,20 @@ class App extends Component {
     equalKey = () => {
         let expression = [...this.state.expression];
         let openParens = this.state.openParens;
+        let ans = this.state.ans;
         while (openParens > 0) {
             expression.push(")");
             openParens -= 1;
         }
+        let result = resolveExpression(expression, this.state.ans);
+        if (!isNaN(result)) {
+            ans = result;
+        }
         this.setState({
-            showingResult: true,
+            result,
             expression,
             openParens,
-            ans: resolveExpression(expression, this.state.ans)
+            ans
         })
     }
 }
