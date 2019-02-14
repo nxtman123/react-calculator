@@ -29,10 +29,10 @@ class Display extends Component {
     }
 
     textExpression = () => {
-        if (this.props.expression.length === 0) {
+        if (this.props.userExpression.length === 0) {
             return "0";
         }
-        return this.props.expression.join("");
+        return this.props.userExpression.join("");
     }
 
     mainLine = () => {

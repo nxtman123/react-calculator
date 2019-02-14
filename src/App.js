@@ -31,47 +31,47 @@ class App extends Component {
 
     state = {
         result: undefined,
-        expression: [],
+        userExpression: [],
         openParens: 0,
         ans: 0
     }
 
     clearKey = () => {
         this.setState({
-            expression: [],
+            userExpression: [],
             result: undefined,
         });
     }
 
     backKey = () => {
-        let expression = [...this.state.expression];
+        let userExpression = [...this.state.userExpression];
         let openParens = this.state.openParens;
-        let value = expression.pop();
+        let value = userExpression.pop();
         if (value === ")") {
             openParens += 1;
         } else if (value === "(") {
             openParens -= 1;
         }
         this.setState({
-            expression,
+            userExpression,
             openParens
         });
     }
 
     typeKey = (value) => () => {
-        let expression = [...this.state.expression];
+        let userExpression = [...this.state.userExpression];
         let openParens = this.state.openParens;
-        let lastToken = expression[expression.length - 1];
+        let lastToken = userExpression[userExpression.length - 1];
         if (this.state.result !== undefined) {
             if ([" + ", " − ", " × ", " ÷ "].indexOf(value) !== -1) {
-                expression = ["Ans"];
+                userExpression = [this.state.ans];
             } else {
-                expression = [];
+                userExpression = [];
             }
         }
         if ([" + ", " × ", " ÷ "].indexOf(value) !== -1) {
-            if (expression.length === 0) {
-                expression = [0];
+            if (userExpression.length === 0) {
+                userExpression = [0];
             } else if(["(", " + ", " − ", " × ", " ÷ "].indexOf(lastToken) !== -1) {
                 return;
             }
@@ -91,37 +91,37 @@ class App extends Component {
                 return;
             } else if (Number.isInteger(lastToken)) {
                 let i = 2;
-                while (Number.isInteger(expression[expression.length - i])) {
+                while (Number.isInteger(userExpression[userExpression.length - i])) {
                     i += 1;
                 }
-                if (expression[expression.length - i] === ".") {
+                if (userExpression[userExpression.length - i] === ".") {
                     return;
                 }
             }
         }
-        expression.push(value);
+        userExpression.push(value);
         this.setState({
             result: undefined,
-            expression,
+            userExpression,
             openParens
         });
     }
 
     equalKey = () => {
-        let expression = [...this.state.expression];
+        let userExpression = [...this.state.userExpression];
         let openParens = this.state.openParens;
         let ans = this.state.ans;
         while (openParens > 0) {
-            expression.push(")");
+            userExpression.push(")");
             openParens -= 1;
         }
-        let result = resolveExpression(expression, this.state.ans);
+        let result = resolveExpression(userExpression, this.state.ans);
         if (!isNaN(result)) {
             ans = result;
         }
         this.setState({
             result,
-            expression,
+            userExpression,
             openParens,
             ans
         })

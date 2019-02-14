@@ -1,14 +1,15 @@
-const resolveExpression = (expression, ans) => {
-    if (expression.length === 0) {
+const resolveExpression = (userExpression, ans) => {
+    let result;
+    if (userExpression.length === 0) {
         return 0;
     }
-    expression = condenseFloats(expression);
-    expression = translateSymbols(expression, ans);
-    expression = expression.join("");
-    let result;
+    userExpression = condenseFloats(userExpression);
+    userExpression = translateSymbols(userExpression, ans);
+    userExpression = implicitMultiplication(userExpression);
+    userExpression = userExpression.join("");
     try {
         // eslint-disable-next-line
-        result = eval(expression);
+        result = eval(userExpression);
         if (result === undefined) {
             result = NaN;
         }
@@ -18,10 +19,10 @@ const resolveExpression = (expression, ans) => {
     return result;
 }
 
-const condenseFloats = (expression) => {
+const condenseFloats = (userExpression) => {
     let result = [];
     let num = [];
-    for (let token of expression) {
+    for (let token of userExpression) {
         if (Number.isInteger(token) || token === ".") {
             num.push(token);
         } else {
@@ -39,19 +40,32 @@ const condenseFloats = (expression) => {
     return result;
 }
 
-const translateSymbols = (expression, ans) => {
-    for (let i=0; i < expression.length; i++) {
-        if (expression[i] === " − ") {
-            expression[i] = " - ";
-        } else if (expression[i] === " × ") {
-            expression[i] = " * ";
-        } else if (expression[i] === " ÷ ") {
-            expression[i] = " / ";
-        } else if (expression[i] === "Ans") {
-            expression[i] = ans;
+const translateSymbols = (userExpression, ans) => {
+    for (let i=0; i < userExpression.length; i++) {
+        if (userExpression[i] === " − ") {
+            userExpression[i] = " - ";
+        } else if (userExpression[i] === " × ") {
+            userExpression[i] = " * ";
+        } else if (userExpression[i] === " ÷ ") {
+            userExpression[i] = " / ";
+        } else if (userExpression[i] === "Ans") {
+            userExpression[i] = ans;
         }
     }
-    return expression;
+    return userExpression;
+}
+
+const implicitMultiplication = (userExpression) => {
+    let result = [];
+    for (let i=0; i < userExpression.length; i++) {
+        result.push(userExpression[i]);
+        if ((!isNaN(userExpression[i]) || userExpression[i] === ")" || userExpression[i] === "Ans") &&
+            (!isNaN(userExpression[i+1]) || userExpression[i+1] === "(" || userExpression[i+1] === "Ans")
+        ) {
+            result.push(" * ");
+        }
+    }
+    return result;
 }
 
 export {
